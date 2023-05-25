@@ -1,0 +1,20 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the app
+    cmds:
+      - GOFLAGS=-mod=mod go build -o bin/go-bnr-cli main.go
+
+  run:
+    desc: Run the app
+    cmds:
+      - GOFLAGS=-mod=mod go run main.go
+  create-image:
+    desc: Create the gndalf image
+    cmds:
+      - GOFLAGS=-mod=mod go run main.go get gandalf
+  clean:
+    desc: Remove all retrieved images/*.png files
+    cmds:
+      - rm -R images
